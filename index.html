@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Future Fortune Museum · Auspice™ 2126</title>
+  <meta name="description" content="A satirical digital museum from the year 2126, where corporate curators misread today's fortune symbols.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== Top bar ===== -->
+  <header class="topbar">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text"><strong>AUSPICE™</strong> Future Fortune Museum</span>
+    </a>
+    <nav class="topnav" aria-label="Main">
+      <a href="#gallery">Gallery</a>
+      <a href="#exhibits">Exhibits</a>
+      <a href="#notice">Notice</a>
+    </nav>
+    <div class="balance" title="Admission is deducted per minute of attention">
+      <span class="balance-label">Your balance</span>
+      <span class="balance-value" id="balance">41.20 LC</span>
+    </div>
+  </header>
+
+  <div class="ticker" aria-label="Announcements">
+    <div class="ticker-track" id="ticker">
+      <span>Smiling in Gallery 3 is a premium feature</span>
+      <span>Luck, Licensed.™</span>
+      <span>Today’s exhibits verified by Auspice Analytics at 97–99% confidence</span>
+      <span>Please do not tap on the salmon tank. The salmon is not a subscription you own.</span>
+      <span>Unlicensed blessings will be removed by Trust &amp; Safety</span>
+      <span>Gift shop now accepting LuckCredits™, ToadCoin™ (legacy) and biometric goodwill</span>
+    </div>
+  </div>
+
+  <main id="top">
+
+    <!-- ===== Hero / Atrium ===== -->
+    <section class="hero">
+      <svg class="roof" viewBox="0 0 1200 340" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="glulam" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#e2b277"/>
+            <stop offset=".55" stop-color="#c58a4c"/>
+            <stop offset="1" stop-color="#9c6331"/>
+          </linearGradient>
+          <path id="beam" d="M-60 150 C 140 20, 330 30, 480 140 S 820 255, 1000 120 S 1180 40, 1280 95"/>
+        </defs>
+        <!-- receding ribs -->
+        <g opacity=".35" transform="translate(120 -70)"><use href="#beam" stroke="#b77d43" stroke-width="56" fill="none"/></g>
+        <g opacity=".5"  transform="translate(80 -46)"><use href="#beam" stroke="#be844a" stroke-width="58" fill="none"/></g>
+        <g opacity=".7"  transform="translate(40 -22)"><use href="#beam" stroke="#c78d52" stroke-width="60" fill="none"/></g>
+        <!-- front rib -->
+        <g>
+          <use href="#beam" stroke="url(#glulam)" stroke-width="66" fill="none"/>
+          <use href="#beam" transform="translate(0 -20)" stroke="#9b6534" stroke-opacity=".35" stroke-width="1.4" fill="none"/>
+          <use href="#beam" transform="translate(0 -10)" stroke="#9b6534" stroke-opacity=".35" stroke-width="1.4" fill="none"/>
+          <use href="#beam" stroke="#9b6534" stroke-opacity=".35" stroke-width="1.4" fill="none"/>
+          <use href="#beam" transform="translate(0 10)" stroke="#9b6534" stroke-opacity=".35" stroke-width="1.4" fill="none"/>
+          <use href="#beam" transform="translate(0 20)" stroke="#9b6534" stroke-opacity=".35" stroke-width="1.4" fill="none"/>
+          <use href="#beam" transform="translate(0 -35)" stroke="#d3d9de" stroke-width="7" fill="none"/>
+        </g>
+        <!-- curved steel legs -->
+        <g stroke="#8e9aa5" stroke-width="18" stroke-linecap="round" fill="none">
+          <path d="M150 104 C 175 190, 140 260, 168 340"/>
+          <path d="M1040 106 C 1062 190, 1030 260, 1056 340"/>
+        </g>
+        <!-- pendant lamps on red cords -->
+        <g class="roof-lamps">
+          <line x1="330" y1="70" x2="330" y2="190" stroke="#c0262d" stroke-width="2"/>
+          <rect x="315" y="190" width="30" height="54" rx="4" fill="#fffdf6"/>
+          <line x1="800" y1="180" x2="800" y2="250" stroke="#c0262d" stroke-width="2"/>
+          <rect x="786" y="250" width="28" height="48" rx="4" fill="#fffdf6"/>
+          <line x1="900" y1="150" x2="900" y2="210" stroke="#c0262d" stroke-width="2"/>
+          <rect x="887" y="210" width="26" height="44" rx="4" fill="#fffdf6"/>
+        </g>
+      </svg>
+
+      <div class="hero-inner">
+        <p class="eyebrow">Auspice™ Holdings presents · Toronto · Year 2126</p>
+        <h1>The Future Fortune Museum</h1>
+        <p class="lede">Eight objects. Four pre-Consolidation cultures. <em>Zero confirmed meanings.</em></p>
+        <p class="intro">
+          Welcome to Toronto’s premier collection of early luck technology. Our curators have reconstructed
+          the purpose of each object using advanced analytics, sponsor input, and a strict
+          no-feelings data policy. Visitors are invited to submit theories. All theories are reviewed.
+        </p>
+        <a class="cta" href="#exhibits">Enter the gallery <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- slatted screen divider (generated) -->
+    <div class="slat-band" data-slats aria-hidden="true"></div>
+
+    <!-- ===== Gallery map ===== -->
+    <section class="gallery" id="gallery">
+      <div class="section-head">
+        <p class="eyebrow">Gallery directory</p>
+        <h2>Collection: Pre-Consolidation Fortune Objects</h2>
+        <p class="muted">Select an object to proceed. Your route is being optimised for sponsor exposure.</p>
+      </div>
+      <ol class="map" id="map"></ol>
+    </section>
+
+    <!-- ===== Exhibits ===== -->
+    <section id="exhibits" class="exhibits" aria-label="Exhibits"></section>
+
+    <div class="slat-band" data-slats aria-hidden="true"></div>
+
+    <!-- ===== Footer / notice ===== -->
+    <footer class="footer" id="notice">
+      <div class="footer-grid">
+        <div class="legal">
+          <p class="eyebrow">Legal</p>
+          <p>
+            © 2126 Auspice™ Holdings, a subsidiary of Auspice™ Holdings. All luck reserved.
+            Interpretations are final. Any resemblance to living traditions is coincidental and
+            has been licensed. By scrolling, you agree to be fortunate only through approved channels.
+          </p>
+          <ul class="sponsors" aria-label="Sponsors">
+            <li>RedPacket Pay™</li><li>AquaHeritage Farms™</li><li>Ingot Bank &amp; Trust</li>
+            <li>ToadCoin Exchange</li><li>CitrusShield™</li><li>FloorBrand™</li>
+            <li>SafeSight Security™</li><li>Lottolux™</li>
+          </ul>
+        </div>
+
+        <div class="real-note">
+          <p class="eyebrow">A note from the curators of 2026 (that’s us)</p>
+          <p>
+            This museum is satire. The “official” labels are deliberately wrong. We imagined a future
+            where corporations have turned Indian, Chinese, Greek and Indigenous fortune symbols into
+            products, to show what is lost when meaning is traded for profit.
+          </p>
+          <p>
+            Salmon are sacred to many Indigenous nations. We show one here not as merchandise, but as a
+            warning about what happens to relationships, rivers and cultures when they are treated as
+            resources.
+          </p>
+          <p><strong>The hidden comments tell the truth.</strong> Open them.</p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="js/exhibits.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
