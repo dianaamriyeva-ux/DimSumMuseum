@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <!-- Mati (Greek evil eye charm). Flat style to match the other object drawings. -->
+  <path d="M200 18 C 192 40, 208 52, 200 74" fill="none" stroke="#c8202a" stroke-width="5" stroke-linecap="round"/>
+  <path d="M206 18 C 214 40, 198 52, 206 74" fill="none" stroke="#f4efe4" stroke-width="3" stroke-linecap="round"/>
+  <rect x="186" y="70" width="28" height="22" rx="5" fill="#e3b84b" stroke="#1d1d1b" stroke-width="4"/>
+  <circle cx="200" cy="232" r="140" fill="#1f3f95" stroke="#1d1d1b" stroke-width="6"/>
+  <circle cx="200" cy="232" r="96" fill="#fbfaf6" stroke="#1d1d1b" stroke-width="4"/>
+  <circle cx="200" cy="232" r="66" fill="#68b3e6" stroke="#1d1d1b" stroke-width="4"/>
+  <circle cx="200" cy="232" r="34" fill="#141414"/>
+  <circle cx="182" cy="214" r="10" fill="#fbfaf6"/>
+  <path d="M110 150 A 120 120 0 0 1 170 112" fill="none" stroke="#5f84d6" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="300" cy="300" r="5" fill="#5f84d6"/>
+</svg>
