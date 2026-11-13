@@ -90,25 +90,25 @@ img { display: block; max-width: 100%; }
 .room-name { color: var(--muted); font-size: .8em; letter-spacing: .02em; }
 
 main { max-width: 1440px; margin: 0 auto; padding: 26px 28px 40px; }
-.banner { text-align: center; padding: 0 0 6px; font-family: var(--font-display); font-size: 1.5em; letter-spacing: .01em; }
-.status { margin: 0 0 18px; text-align: center; color: var(--muted); font-size: .82em; letter-spacing: .02em; }
 
-/* ---------- The room ---------- */
+/* ---------- The room ----------
+   Phones and tablets: the room grows with its cases.
+   Desktop (min-width 1001px): the room fills the screen under the header; sizes follow its height (--rh). */
 .room { perspective: 1200px; }
-.room-scene { position: relative; border-radius: 5px; overflow: hidden; padding: 0 3% 0;
+.room-scene { position: relative; overflow: hidden; padding: 70px 4% 0;
+              min-height: calc(100svh - var(--top-h, 97px));
               background:
                   var(--grain),
                   linear-gradient(180deg, rgba(80,50,20,.18), transparent 22%),
                   repeating-linear-gradient(90deg, var(--oak-1) 0 22px, #c9a979 22px 24px, #e2caa5 24px 26px);
               background-blend-mode: multiply, normal, normal;
-              box-shadow: 0 0 0 1px rgba(110,74,41,.25), 0 30px 50px -24px rgba(0,0,0,.35);
               transition: transform .65s cubic-bezier(.6,0,.3,1), opacity .65s ease; }
 .is-zooming .room-scene { transform: scale(2.6); opacity: .0; transition: transform .65s cubic-bezier(.6,0,.3,1), opacity .45s ease .2s; }
 
 .ceiling { position: absolute; left: 0; right: 0; top: 0; height: 46px; z-index: 1;
            background: repeating-linear-gradient(90deg, #a77446 0 60px, #8f5f36 60px 64px);
            box-shadow: 0 8px 16px -6px rgba(60,35,15,.45); }
-.window { position: absolute; left: 6%; right: 6%; top: 92px; height: 210px; z-index: 0;
+.window { position: absolute; left: 6%; right: 6%; top: 80px; height: 160px; z-index: 0;
           background: linear-gradient(180deg, #dbe5e2 0, #eef0ea 46%, #a9c2c2 56%, #86a6aa 100%);
           box-shadow: 0 0 0 8px #8a5c33, 0 0 0 9px rgba(0,0,0,.2), inset 0 6px 14px rgba(0,0,0,.18); }
 .window::after { content: ''; position: absolute; inset: 0;
@@ -116,19 +116,40 @@ main { max-width: 1440px; margin: 0 auto; padding: 26px 28px 40px; }
 .far-shore { position: absolute; left: 0; right: 0; top: calc(56% - 10px); height: 10px;
              background: linear-gradient(90deg, #8ea596, #7d9787 30%, #94a99b 60%, #7f978a); opacity: .8; }
 
-.lamps { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(6, 1fr); gap: 2%; height: 150px; }
+.lamps, .floor { display: none; }
 .lamp { position: relative; justify-self: center; width: 18px; }
-.lamp::before { content: ''; position: absolute; left: 50%; top: 0; width: 1.5px; height: 92px; background: #c0262d; transform: translateX(-50%); }
-.lamp::after { content: ''; position: absolute; left: 0; top: 92px; width: 18px; height: 34px; border-radius: 3px;
+.lamp::before { content: ''; position: absolute; left: 50%; top: 0; width: 1.5px; height: var(--cord, 92px); background: #c0262d; transform: translateX(-50%); }
+.lamp::after { content: ''; position: absolute; left: 0; top: var(--cord, 92px); width: 18px; height: 34px; border-radius: 3px;
                background: repeating-linear-gradient(90deg, #fffdf7 0 3px, #f0ebe0 3px 4px);
                box-shadow: 0 0 22px 8px rgba(255,240,205,.8), 0 40px 70px 26px rgba(255,240,205,.35); }
 
-.cases { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(6, 1fr); gap: 2%; align-items: end; padding-bottom: 34px; }
-.floor { position: absolute; left: 0; right: 0; bottom: 0; height: 150px; z-index: 1;
-         background:
-             linear-gradient(180deg, rgba(60,35,15,.22), transparent 30%),
-             repeating-linear-gradient(90deg, #e6d2b2 0 70px, #d8bf98 70px 72px);
-         border-top: 1px solid rgba(110,74,41,.35); }
+.cases { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px 2%; align-items: end; padding: 40px 0 30px; }
+.vitrine::after { content: ''; display: block; width: 110%; height: 12px; margin-top: -6px; order: 2;
+                  background: radial-gradient(closest-side, rgba(60,35,15,.25), transparent); }
+.room-foot { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px 20px;
+             padding: 14px 0 22px; border-top: 1px solid rgba(110,74,41,.25); }
+.banner { font-family: var(--font-display); font-size: 1.4em; letter-spacing: .01em; line-height: 1.1; }
+.status { color: #5f574b; font-size: .82em; letter-spacing: .02em; }
+
+@media (min-width: 1001px) {
+    .room-scene { --rh: max(600px, calc(100svh - var(--top-h, 97px)));
+                  --cw: min(13vw, calc(var(--rh) * .2));
+                  height: var(--rh); min-height: 0; padding: 0; }
+    .ceiling { height: max(40px, calc(var(--rh) * .055)); }
+    .window { top: calc(var(--rh) * .15); height: calc(var(--rh) * .3); }
+    .floor { display: block; position: absolute; left: 0; right: 0; bottom: 0; height: calc(var(--rh) * .3); z-index: 1;
+             background:
+                 linear-gradient(180deg, rgba(60,35,15,.22), transparent 30%),
+                 repeating-linear-gradient(90deg, #e6d2b2 0 70px, #d8bf98 70px 72px);
+             border-top: 1px solid rgba(110,74,41,.35); }
+    .lamps, .cases { position: absolute; left: 0; right: 0; display: grid; grid-template-columns: repeat(6, var(--cw)); justify-content: space-evenly; }
+    .lamps { top: 0; z-index: 2; --cord: calc(var(--rh) * .13); }
+    .cases { bottom: calc(var(--rh) * .03 + 52px); gap: 0; padding: 0; align-items: end; }
+    .vitrine { --plinth-h: calc(var(--rh) * .11); }
+    .vitrine--tall { --plinth-h: calc(var(--rh) * .15); }
+    .vitrine::after { display: none; }
+    .room-foot { position: absolute; left: 3%; right: 3%; bottom: 0; border-top: 0; padding: 0 0 18px; }
+}
 
 /* One display case: glass box on a white plinth with a brass number plate */
 .vitrine { --case-ratio: 1 / 0.9; --plinth-h: 96px;
@@ -162,7 +183,7 @@ main { max-width: 1440px; margin: 0 auto; padding: 26px 28px 40px; }
 .cap-from { font-size: .74em; color: #5f574b; letter-spacing: .02em; margin-top: 3px; }
 
 /* ---------- About ---------- */
-.about { max-width: 980px; margin: 56px auto 0; }
+.about { max-width: 980px; margin: 40px auto 0; }
 .about-col { display: grid; grid-template-columns: 220px 1fr; gap: 8px 40px; }
 .about h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.9em; line-height: 1.05; grid-row: span 2; }
 .about p { color: #333; margin-bottom: 12px; }
@@ -235,12 +256,6 @@ main { max-width: 1440px; margin: 0 auto; padding: 26px 28px 40px; }
 
 /* ---------- Smaller screens ---------- */
 @media (max-width: 1000px) {
-    .lamps, .floor { display: none; }
-    .room-scene { padding: 70px 4% 10px; }
-    .window { top: 80px; height: 160px; }
-    .cases { grid-template-columns: repeat(3, 1fr); row-gap: 44px; padding: 40px 0 30px; }
-    .vitrine::after { content: ''; display: block; width: 110%; height: 12px; margin-top: -6px; order: 2;
-                      background: radial-gradient(closest-side, rgba(60,35,15,.25), transparent); }
     .caption { order: 3; }
 }
 @media (max-width: 860px) {
@@ -254,6 +269,7 @@ main { max-width: 1440px; margin: 0 auto; padding: 26px 28px 40px; }
 @media (max-width: 600px) {
     .top { padding: 18px 16px 12px; flex-direction: column; align-items: flex-start; gap: 6px; }
     main { padding: 22px 16px 32px; }
+    .room-scene { padding: 64px 16px 0; }
     .cases { grid-template-columns: repeat(2, 1fr); }
     .vitrine { --plinth-h: 72px; }
     .vitrine--tall { --plinth-h: 92px; }

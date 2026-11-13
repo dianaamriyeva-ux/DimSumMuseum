@@ -1,13 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
-  <!-- Mati (Greek evil eye charm). Flat style to match the other object drawings. -->
-  <path d="M200 18 C 192 40, 208 52, 200 74" fill="none" stroke="#c8202a" stroke-width="5" stroke-linecap="round"/>
-  <path d="M206 18 C 214 40, 198 52, 206 74" fill="none" stroke="#f4efe4" stroke-width="3" stroke-linecap="round"/>
-  <rect x="186" y="70" width="28" height="22" rx="5" fill="#e3b84b" stroke="#1d1d1b" stroke-width="4"/>
-  <circle cx="200" cy="232" r="140" fill="#1f3f95" stroke="#1d1d1b" stroke-width="6"/>
-  <circle cx="200" cy="232" r="96" fill="#fbfaf6" stroke="#1d1d1b" stroke-width="4"/>
-  <circle cx="200" cy="232" r="66" fill="#68b3e6" stroke="#1d1d1b" stroke-width="4"/>
-  <circle cx="200" cy="232" r="34" fill="#141414"/>
-  <circle cx="182" cy="214" r="10" fill="#fbfaf6"/>
-  <path d="M110 150 A 120 120 0 0 1 170 112" fill="none" stroke="#5f84d6" stroke-width="10" stroke-linecap="round"/>
-  <circle cx="300" cy="300" r="5" fill="#5f84d6"/>
+  <!-- Mati (Greek evil eye charm). Flat colour, no outlines, to match the other object drawings. -->
+  <path d="M197 16 C 189 38, 205 50, 197 72" fill="none" stroke="#c8202a" stroke-width="6" stroke-linecap="round"/>
+  <path d="M205 16 C 213 38, 197 50, 205 72" fill="none" stroke="#f1ead8" stroke-width="4" stroke-linecap="round"/>
+  <rect x="184" y="68" width="32" height="24" rx="6" fill="#e3b84b"/>
+  <rect x="184" y="68" width="12" height="24" rx="5" fill="#f2d27a"/>
+  <circle cx="200" cy="232" r="142" fill="#1f3f95"/>
+  <path d="M200 90 A 142 142 0 0 1 342 232 A 142 142 0 0 1 200 374 A 160 160 0 0 0 200 90 Z" fill="#183379"/>
+  <circle cx="200" cy="232" r="98" fill="#fbfaf6"/>
+  <circle cx="200" cy="232" r="68" fill="#68b3e6"/>
+  <path d="M200 164 A 68 68 0 0 1 200 300 A 80 80 0 0 0 200 164 Z" fill="#4f9fd6"/>
+  <circle cx="200" cy="232" r="35" fill="#141414"/>
+  <circle cx="184" cy="216" r="11" fill="#fbfaf6"/>
+  <path d="M108 152 A 120 120 0 0 1 168 112" fill="none" stroke="#3f63c0" stroke-width="12" stroke-linecap="round"/>
 </svg>
