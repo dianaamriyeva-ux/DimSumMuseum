@@ -32,6 +32,7 @@
         root.classList.add('is-entering');
         setTimeout(() => {
             root.classList.remove('landing-on', 'is-entering');
+            window.dispatchEvent(new Event('resize'));
             try { sessionStorage.setItem('lakeMuseumInside', '1'); } catch (e) {}
             window.scrollTo(0, 0);
             document.querySelector('.top h1').focus({ preventScroll: true });
@@ -58,6 +59,12 @@
             <span class="caption"><span class="cap-name">${esc(o.name)}</span><span class="cap-from">${esc(o.culture)}</span></span>
         </button>`).join('');
     lamps.innerHTML = objects.map(() => '<span class="lamp"></span>').join('');
+
+    // The room fills the screen under the header: tell the CSS how tall the header is.
+    const top = document.querySelector('.top');
+    const setTopH = () => root.style.setProperty('--top-h', top.offsetHeight + 'px');
+    setTopH();
+    window.addEventListener('resize', setTopH);
 
     /* ---------- Close-up ---------- */
 
