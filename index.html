@@ -3,153 +3,249 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Future Fortune Museum · Auspice™ 2126</title>
-  <meta name="description" content="A satirical digital museum from the year 2126, where corporate curators misread today's fortune symbols.">
+  <title>The Lake Museum</title>
+  <meta name="description" content="Toronto, 2126. Time capsules sealed in 2026 have been found, opened and kept at the Lake Museum.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script>
+    try { if (sessionStorage.getItem('lakeMuseumInside') !== '1') document.documentElement.classList.add('landing-on'); }
+    catch (e) { document.documentElement.classList.add('landing-on'); }
+  </script>
 </head>
 <body>
 
-  <!-- ===== Top bar ===== -->
-  <header class="topbar">
-    <a class="brand" href="#top">
-      <span class="brand-mark" aria-hidden="true"></span>
-      <span class="brand-text"><strong>AUSPICE™</strong> Future Fortune Museum</span>
-    </a>
-    <nav class="topnav" aria-label="Main">
-      <a href="#gallery">Gallery</a>
-      <a href="#exhibits">Exhibits</a>
-      <a href="#notice">Notice</a>
-    </nav>
-    <div class="balance" title="Admission is deducted per minute of attention">
-      <span class="balance-label">Your balance</span>
-      <span class="balance-value" id="balance">41.20 LC</span>
-    </div>
-  </header>
+  <!-- ========== Entrance ========== -->
+  <section class="landing" aria-label="Entrance">
+    <svg class="lake-art" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#cfdcdb"/>
+          <stop offset=".55" stop-color="#ecebe2"/>
+          <stop offset="1" stop-color="#f6e7cf"/>
+        </linearGradient>
+        <radialGradient id="sun" cx=".72" cy=".62" r=".35">
+          <stop offset="0" stop-color="#fff6e0" stop-opacity=".95"/>
+          <stop offset="1" stop-color="#fff6e0" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#b9cdcb"/>
+          <stop offset=".4" stop-color="#93b0b1"/>
+          <stop offset="1" stop-color="#5f8189"/>
+        </linearGradient>
+        <linearGradient id="glulam" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#e3b67c"/>
+          <stop offset="1" stop-color="#b17741"/>
+        </linearGradient>
+        <linearGradient id="soffit" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#d5a46a"/>
+          <stop offset="1" stop-color="#eac48f"/>
+        </linearGradient>
+        <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#fff0cf"/>
+          <stop offset="1" stop-color="#f4bf72"/>
+        </linearGradient>
+        <linearGradient id="slat" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#d7a96e"/>
+          <stop offset="1" stop-color="#b9864f"/>
+        </linearGradient>
+        <linearGradient id="deck" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#c9a06b"/>
+          <stop offset="1" stop-color="#a77845"/>
+        </linearGradient>
+        <pattern id="slats" width="14" height="10" patternUnits="userSpaceOnUse">
+          <rect width="14" height="10" fill="#5a3d24"/>
+          <rect x="2" width="9" height="10" fill="url(#slat)"/>
+        </pattern>
+        <clipPath id="under-roof">
+          <path d="M330 438 C 480 378, 620 378, 800 418 C 980 458, 1120 458, 1270 398 L1270 640 L330 640 Z"/>
+        </clipPath>
+        <clipPath id="water-clip"><rect x="0" y="612" width="1600" height="288"/></clipPath>
+        <filter id="ripple" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency=".004 .09" numOctaves="2" seed="4"/>
+          <feDisplacementMap in="SourceGraphic" scale="16"/>
+        </filter>
+        <path id="roof-top" d="M330 386 C 480 326, 620 326, 800 366 C 980 406, 1120 406, 1270 346"/>
+      </defs>
 
-  <div class="ticker" aria-label="Announcements">
-    <div class="ticker-track" id="ticker">
-      <span>Smiling in Gallery 3 is a premium feature</span>
-      <span>Luck, Licensed.™</span>
-      <span>Today’s exhibits verified by Auspice Analytics at 97–99% confidence</span>
-      <span>Please do not tap on the salmon tank. The salmon is not a subscription you own.</span>
-      <span>Unlicensed blessings will be removed by Trust &amp; Safety</span>
-      <span>Gift shop now accepting LuckCredits™, ToadCoin™ (legacy) and biometric goodwill</span>
+      <!-- sky, sun haze, far shore -->
+      <rect x="-2000" y="-4000" width="5600" height="4910" fill="#cfdcdb"/>
+      <rect width="1600" height="900" fill="url(#sky)"/>
+      <rect width="1600" height="900" fill="url(#sun)"/>
+      <path d="M0 600 C 120 586, 220 590, 320 596 L 1300 596 C 1400 588, 1500 584, 1600 590 L1600 614 L0 614 Z" fill="#9fb1a6" opacity=".55"/>
+      <path d="M1340 598 C 1380 560, 1430 568, 1460 590 C 1490 572, 1540 570, 1600 586 L1600 614 L1340 614 Z" fill="#8aa092" opacity=".6"/>
+
+      <!-- the building (reused below for the reflection) -->
+      <g id="building">
+        <!-- trees -->
+        <g>
+          <ellipse cx="200" cy="540" rx="90" ry="78" fill="#5f7b5a"/>
+          <ellipse cx="270" cy="560" rx="70" ry="60" fill="#6f8c63"/>
+          <ellipse cx="130" cy="570" rx="64" ry="50" fill="#536e50"/>
+          <ellipse cx="1390" cy="548" rx="84" ry="70" fill="#5f7b5a"/>
+          <ellipse cx="1330" cy="570" rx="62" ry="48" fill="#6f8c63"/>
+          <rect x="196" y="580" width="8" height="34" fill="#4a3a2a"/>
+          <rect x="1386" y="584" width="8" height="30" fill="#4a3a2a"/>
+        </g>
+        <!-- plinth / shore -->
+        <rect x="300" y="596" width="1000" height="18" fill="#d9d4c7"/>
+        <rect x="300" y="596" width="1000" height="3" fill="#f2efe7"/>
+
+        <!-- walls, tucked under the roof -->
+        <g clip-path="url(#under-roof)">
+          <rect x="300" y="360" width="1000" height="240" fill="url(#soffit)"/>
+          <rect x="390" y="420" width="220" height="176" fill="url(#slats)"/>
+          <rect x="990" y="420" width="220" height="176" fill="url(#slats)"/>
+          <!-- glass hall -->
+          <rect x="610" y="400" width="380" height="196" fill="url(#glow)"/>
+          <!-- inside: pendant lamps and display cases -->
+          <g fill="#fffdf6">
+            <rect x="650" y="470" width="10" height="18" rx="2"/><rect x="720" y="476" width="10" height="18" rx="2"/>
+            <rect x="870" y="476" width="10" height="18" rx="2"/><rect x="940" y="470" width="10" height="18" rx="2"/>
+          </g>
+          <g stroke="#c0262d" stroke-width="1"><path d="M655 400 V470 M725 400 V476 M875 400 V476 M945 400 V470"/></g>
+          <g fill="#f8f4ea" opacity=".9">
+            <rect x="640" y="556" width="30" height="40"/><rect x="710" y="562" width="30" height="34"/>
+            <rect x="860" y="562" width="30" height="34"/><rect x="930" y="556" width="30" height="40"/>
+          </g>
+          <g fill="#ffffff" opacity=".45">
+            <rect x="642" y="534" width="26" height="22"/><rect x="712" y="540" width="26" height="22"/>
+            <rect x="862" y="540" width="26" height="22"/><rect x="932" y="534" width="26" height="22"/>
+          </g>
+          <!-- mullions -->
+          <g fill="#4b3826">
+            <rect x="606" y="400" width="6" height="196"/><rect x="684" y="400" width="3" height="196"/>
+            <rect x="760" y="400" width="3" height="196"/><rect x="837" y="400" width="3" height="196"/>
+            <rect x="913" y="400" width="3" height="196"/><rect x="988" y="400" width="6" height="196"/>
+          </g>
+          <!-- open entrance -->
+          <rect id="door" x="763" y="470" width="74" height="126" fill="#fff6e2"/>
+          <rect x="763" y="470" width="74" height="126" fill="none" stroke="#4b3826" stroke-width="4"/>
+          <!-- warm light spilling out -->
+          <path d="M763 596 L837 596 L900 612 L700 612 Z" fill="#ffe7b8" opacity=".7"/>
+          <!-- soffit ribs -->
+          <g stroke="#b88551" stroke-width="2" opacity=".55">
+            <path d="M340 420 V440 M400 404 V430 M460 394 V424 M520 390 V420 M580 390 V418 M640 392 V420 M700 398 V424
+                     M760 406 V430 M820 414 V440 M880 424 V448 M940 432 V454 M1000 436 V458 M1060 436 V458 M1120 432 V452 M1180 420 V442 M1240 406 V428"/>
+          </g>
+        </g>
+
+        <!-- wavy glulam roof -->
+        <path d="M330 386 C 480 326, 620 326, 800 366 C 980 406, 1120 406, 1270 346 L1270 380 C 1120 440, 980 440, 800 400 C 620 360, 480 360, 330 420 Z" fill="url(#glulam)"/>
+        <g fill="none" stroke="#9a6534" stroke-opacity=".35" stroke-width="1.2">
+          <use href="#roof-top" transform="translate(0 7)"/><use href="#roof-top" transform="translate(0 14)"/>
+          <use href="#roof-top" transform="translate(0 21)"/><use href="#roof-top" transform="translate(0 28)"/>
+        </g>
+        <use href="#roof-top" fill="none" stroke="#dfe3e2" stroke-width="5"/>
+
+        <!-- curved steel legs -->
+        <g stroke="#8e9aa5" stroke-width="10" stroke-linecap="round" fill="none">
+          <path d="M352 412 C 368 480, 340 540, 356 598"/>
+          <path d="M1248 374 C 1262 450, 1236 530, 1250 598"/>
+        </g>
+      </g>
+
+      <!-- lake -->
+      <rect x="0" y="612" width="1600" height="288" fill="url(#water)"/>
+      <g clip-path="url(#water-clip)">
+        <g opacity=".32" filter="url(#ripple)">
+          <use href="#building" transform="translate(0 1226) scale(1 -1)"/>
+        </g>
+      </g>
+      <g class="ripples" stroke="#eef3f1" stroke-linecap="round" opacity=".55">
+        <path d="M120 660 h70 M260 700 h40 M1240 650 h90 M1380 720 h60 M480 780 h50 M1080 760 h70 M180 820 h80 M1300 840 h90" stroke-width="2"/>
+        <path d="M600 640 h40 M960 646 h30 M420 680 h30 M1150 690 h40" stroke-width="1.5"/>
+      </g>
+
+      <!-- boardwalk to the door -->
+      <path d="M770 612 L830 612 L1010 900 L590 900 Z" fill="url(#deck)"/>
+      <g stroke="#8a5f36" stroke-opacity=".55">
+        <path d="M767 618 H833 M762 626 H838 M756 636 H844 M748 648 H852 M738 663 H862 M726 681 H874 M711 703 H889 M693 730 H907 M671 763 H929 M645 803 H955 M613 851 H987"/>
+      </g>
+      <path d="M770 612 L590 900 M830 612 L1010 900" stroke="#6e4a29" stroke-width="3"/>
+      <g fill="#5d4027">
+        <rect x="660" y="806" width="10" height="40"/><rect x="930" y="806" width="10" height="40"/>
+        <rect x="716" y="712" width="7" height="24"/><rect x="877" y="712" width="7" height="24"/>
+      </g>
+      <!-- reeds -->
+      <g stroke="#6d7f55" stroke-width="3" stroke-linecap="round" fill="none">
+        <path d="M80 900 C 84 860, 78 830, 90 800 M100 900 C 102 870, 110 850, 104 820 M120 900 C 118 870, 126 846, 136 830"/>
+        <path d="M1500 900 C 1504 860, 1496 836, 1506 808 M1522 900 C 1520 868, 1530 850, 1540 834 M1478 900 C 1480 874, 1472 852, 1466 832"/>
+      </g>
+    </svg>
+
+    <div class="landing-copy">
+      <p class="landing-kicker">Toronto · 2126</p>
+      <h1 class="landing-title">The Lake Museum</h1>
+      <p class="landing-sub">Time capsules sealed in 2026, found, opened and kept by the lake.</p>
     </div>
+    <button class="cta enter" type="button">Enter the museum</button>
+  </section>
+
+  <!-- ========== Inside ========== -->
+  <div class="inside">
+    <header class="top">
+      <div class="title">
+        <button class="leave" type="button">Leave the museum</button>
+        <h1 tabindex="-1">The Lake Museum</h1>
+      </div>
+      <p class="room-name">Room 1 · The Opened Capsules</p>
+    </header>
+
+    <main>
+      <p class="banner">Six fortunes, sealed in 2026.</p>
+      <p class="status">Choose a case to look closer.</p>
+
+      <section class="room" aria-label="Exhibition room">
+        <div class="room-scene" id="room">
+          <div class="ceiling" aria-hidden="true"></div>
+          <div class="window" aria-hidden="true"><span class="far-shore"></span></div>
+          <div class="lamps" aria-hidden="true" id="lamps"></div>
+          <div class="cases" id="cases"></div>
+          <div class="floor" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <section class="about">
+        <div class="about-col">
+          <h2>About these objects</h2>
+          <p>
+            In 2026, people across Toronto left cards and fortune symbols in a time capsule, hoping to pass their
+            cultures on to us. A hundred years later, the capsules have been opened.
+          </p>
+          <p>
+            Many of these objects were once tied to money. Our grandparents lived through the end of that world,
+            and rebuilt it around a simpler rule: <em>take what you need, give what you can.</em> We keep these
+            objects because, read closely, most of them were never really about money. They were about giving.
+          </p>
+        </div>
+        <p class="land">We honor the ancestral lands of the Haudenosaunee Confederacy, the Métis, and Anishinaabek peoples.</p>
+      </section>
+    </main>
   </div>
 
-  <main id="top">
-
-    <!-- ===== Hero / Atrium ===== -->
-    <section class="hero">
-      <svg class="roof" viewBox="0 0 1200 340" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
-        <defs>
-          <linearGradient id="glulam" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#e2b277"/>
-            <stop offset=".55" stop-color="#c58a4c"/>
-            <stop offset="1" stop-color="#9c6331"/>
-          </linearGradient>
-          <path id="beam" d="M-60 150 C 140 20, 330 30, 480 140 S 820 255, 1000 120 S 1180 40, 1280 95"/>
-        </defs>
-        <!-- receding ribs -->
-        <g opacity=".35" transform="translate(120 -70)"><use href="#beam" stroke="#b77d43" stroke-width="56" fill="none"/></g>
-        <g opacity=".5"  transform="translate(80 -46)"><use href="#beam" stroke="#be844a" stroke-width="58" fill="none"/></g>
-        <g opacity=".7"  transform="translate(40 -22)"><use href="#beam" stroke="#c78d52" stroke-width="60" fill="none"/></g>
-        <!-- front rib -->
-        <g>
-          <use href="#beam" stroke="url(#glulam)" stroke-width="66" fill="none"/>
-          <use href="#beam" transform="translate(0 -20)" stroke="#9b6534" stroke-opacity=".35" stroke-width="1.4" fill="none"/>
-          <use href="#beam" transform="translate(0 -10)" stroke="#9b6534" stroke-opacity=".35" stroke-width="1.4" fill="none"/>
-          <use href="#beam" stroke="#9b6534" stroke-opacity=".35" stroke-width="1.4" fill="none"/>
-          <use href="#beam" transform="translate(0 10)" stroke="#9b6534" stroke-opacity=".35" stroke-width="1.4" fill="none"/>
-          <use href="#beam" transform="translate(0 20)" stroke="#9b6534" stroke-opacity=".35" stroke-width="1.4" fill="none"/>
-          <use href="#beam" transform="translate(0 -35)" stroke="#d3d9de" stroke-width="7" fill="none"/>
-        </g>
-        <!-- curved steel legs -->
-        <g stroke="#8e9aa5" stroke-width="18" stroke-linecap="round" fill="none">
-          <path d="M150 104 C 175 190, 140 260, 168 340"/>
-          <path d="M1040 106 C 1062 190, 1030 260, 1056 340"/>
-        </g>
-        <!-- pendant lamps on red cords -->
-        <g class="roof-lamps">
-          <line x1="330" y1="70" x2="330" y2="190" stroke="#c0262d" stroke-width="2"/>
-          <rect x="315" y="190" width="30" height="54" rx="4" fill="#fffdf6"/>
-          <line x1="800" y1="180" x2="800" y2="250" stroke="#c0262d" stroke-width="2"/>
-          <rect x="786" y="250" width="28" height="48" rx="4" fill="#fffdf6"/>
-          <line x1="900" y1="150" x2="900" y2="210" stroke="#c0262d" stroke-width="2"/>
-          <rect x="887" y="210" width="26" height="44" rx="4" fill="#fffdf6"/>
-        </g>
-      </svg>
-
-      <div class="hero-inner">
-        <p class="eyebrow">Auspice™ Holdings presents · Toronto · Year 2126</p>
-        <h1>The Future Fortune Museum</h1>
-        <p class="lede">Eight objects. Four pre-Consolidation cultures. <em>Zero confirmed meanings.</em></p>
-        <p class="intro">
-          Welcome to Toronto’s premier collection of early luck technology. Our curators have reconstructed
-          the purpose of each object using advanced analytics, sponsor input, and a strict
-          no-feelings data policy. Visitors are invited to submit theories. All theories are reviewed.
-        </p>
-        <a class="cta" href="#exhibits">Enter the gallery <span aria-hidden="true">→</span></a>
-      </div>
-    </section>
-
-    <!-- slatted screen divider (generated) -->
-    <div class="slat-band" data-slats aria-hidden="true"></div>
-
-    <!-- ===== Gallery map ===== -->
-    <section class="gallery" id="gallery">
-      <div class="section-head">
-        <p class="eyebrow">Gallery directory</p>
-        <h2>Collection: Pre-Consolidation Fortune Objects</h2>
-        <p class="muted">Select an object to proceed. Your route is being optimised for sponsor exposure.</p>
-      </div>
-      <ol class="map" id="map"></ol>
-    </section>
-
-    <!-- ===== Exhibits ===== -->
-    <section id="exhibits" class="exhibits" aria-label="Exhibits"></section>
-
-    <div class="slat-band" data-slats aria-hidden="true"></div>
-
-    <!-- ===== Footer / notice ===== -->
-    <footer class="footer" id="notice">
-      <div class="footer-grid">
-        <div class="legal">
-          <p class="eyebrow">Legal</p>
-          <p>
-            © 2126 Auspice™ Holdings, a subsidiary of Auspice™ Holdings. All luck reserved.
-            Interpretations are final. Any resemblance to living traditions is coincidental and
-            has been licensed. By scrolling, you agree to be fortunate only through approved channels.
-          </p>
-          <ul class="sponsors" aria-label="Sponsors">
-            <li>RedPacket Pay™</li><li>AquaHeritage Farms™</li><li>Ingot Bank &amp; Trust</li>
-            <li>ToadCoin Exchange</li><li>CitrusShield™</li><li>FloorBrand™</li>
-            <li>SafeSight Security™</li><li>Lottolux™</li>
-          </ul>
+  <!-- ========== Close look at one object ========== -->
+  <div class="detail" id="detail" role="dialog" aria-modal="true" aria-labelledby="d-name" hidden>
+    <button class="detail-close" type="button" aria-label="Back to the room">Back to the room <span aria-hidden="true">×</span></button>
+    <div class="detail-grid">
+      <div class="detail-stage">
+        <div class="big-case">
+          <img id="d-img" alt="">
         </div>
-
-        <div class="real-note">
-          <p class="eyebrow">A note from the curators of 2026 (that’s us)</p>
-          <p>
-            This museum is satire. The “official” labels are deliberately wrong. We imagined a future
-            where corporations have turned Indian, Chinese, Greek and Indigenous fortune symbols into
-            products, to show what is lost when meaning is traded for profit.
-          </p>
-          <p>
-            Salmon are sacred to many Indigenous nations. We show one here not as merchandise, but as a
-            warning about what happens to relationships, rivers and cultures when they are treated as
-            resources.
-          </p>
-          <p><strong>The hidden comments tell the truth.</strong> Open them.</p>
-        </div>
+        <div class="big-plinth"><span class="plate" id="d-plate"></span></div>
       </div>
-    </footer>
-  </main>
+      <article class="detail-text" id="d-text"></article>
+    </div>
+    <nav class="detail-nav" aria-label="Other objects">
+      <button type="button" class="nav-prev">← <span></span></button>
+      <span class="nav-count" id="d-count"></span>
+      <button type="button" class="nav-next"><span></span> →</button>
+    </nav>
+  </div>
 
-  <script src="js/exhibits.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/objects.js"></script>
+  <script src="js/museum.js"></script>
 </body>
 </html>
